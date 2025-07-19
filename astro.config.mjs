@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
-import content from '@astrojs/content';
 
 export default defineConfig({
-  integrations: [content()],
+  // integrations: [] // Content Collectionsは組み込みなのでここに追加不要
 });
 
