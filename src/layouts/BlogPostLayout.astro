@@ -13,7 +13,7 @@ const { frontmatter } = Astro.props;
         <p class="date">投稿日: {new Date(frontmatter.date).toLocaleDateString('ja-JP')}</p>
 
         <div class="tags">
-            {frontmatter.tags.map((g) => (
+            {frontmatter.tags.map((tag: string) => (
                 <span class="tag">{tag}</span>
             ))}
         </div> 
