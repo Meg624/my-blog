@@ -1,33 +1,111 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-type BlogPost = CollectionEntry<'blog'>;
+// blogコレクションから記事を取得し、日付の新しい順に並べ替え、最新3件だけ取得
 
-const allPosts = await getCollection('blog');
-const sortedPosts: BlogPost[] = allPosts.sort(
-  (a: BlogPost, b: BlogPost) => b.data.date.getTime() - a.data.date.getTime()
-);
+type BlogEntry = Awaited<ReturnType<typeof getCollection>>[number];
+
+const allPosts: BlogEntry[] = await getCollection('blog');
+const recentPosts = allPosts
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 ---
 
-<BaseLayout title="ブログ一覧">
+<BaseLayout title="ホーム">
   <Header slot="header" />
 
-  <main class="blog-list">
-    <h1>ブログ記事一覧</h1>
-    <ul>
-      {sortedPosts.map((post) => (
-        <li>
-          <a href={`/blog/${post.id}/`}>
-            <h2>{post.data.title}</h2>
-            <p>{post.data.date.toLocaleDateString()}</p>
-          </a>
-        </li>
+  <section class="hero">
+    <h1>My Blog</h1>
+    <p>技術、旅行、趣味についての個人ブログです</p>
+  </section>
+
+  <section class="recent-posts">
+    <h2>最新の記事</h2>
+    <div class="posts-grid">
+      {recentPosts.map(post => (
+        <div class="post-card">
+          <h3>{post.data.title}</h3>
+          <p class="date">{new Date(post.data.date).toLocaleDateString('ja-JP')}</p>
+          <p>{post.data.description}</p>
+          <a href={`/blog/${post.slug}`} class="read-more">続きを読む</a>
+        </div>
       ))}
-    </ul>
-  </main>
+    </div>
+  </section>
 
   <Footer slot="footer" />
 </BaseLayout>
+
+
+<style>
+.hero {
+  text-align: center;
+  padding: 4rem 1rem; /* 左右に少しパディングを追加 */
+  max-width: 800px;
+  margin: 2rem auto 3rem auto; /* 上部マージン2remを追加 */
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+  .recent-posts {
+    margin: 3rem 0;
+  }
+  .recent-posts h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .post-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  .post-card h3 {
+    margin-bottom: 0.5rem;
+  }
+  .post-card .date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #008080;
+    text-decoration: none;
+  }
+  .read-more:hover {
+    color: #b76e79; /* くすみピンクでさりげないアクセント */
+    text-decoration: underline;
+  }
+</style>
+
