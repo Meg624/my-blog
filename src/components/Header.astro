@@ -16,31 +16,54 @@
 </div>
 
 <style>
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 0;
-        border-bottom: 1px solid #eee;
-        margin-bottom: 2rem;
-    }
-    .logo a {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: #333;
-    }
-    nav ul {
-        display: flex;
-        gap: 1.5rem;
-        list-style: none;
-    }
-    nav a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-    }
-    nav a:hover {
-        color: #0066cc;
-    }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fdf9f3; /* 柔らかいクリーム色 */
+  border-bottom: 1px solid #ddd;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #444;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #008080;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #b76e79; /* くすみピンクでさりげないアクセント */
+  text-decoration: underline;
+}
+
+/* レスポンシブ対応（スマホ向け） */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
 </style>
