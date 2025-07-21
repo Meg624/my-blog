@@ -1,6 +1,7 @@
+
 import { defineConfig } from 'astro/config';
+import astroIcon from 'astro-icon';
 
 export default defineConfig({
-  // integrations: [] // Content Collectionsは組み込みなのでここに追加不要
+  integrations: [astroIcon()],
 });
-
