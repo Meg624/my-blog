@@ -20,7 +20,7 @@ const sortedPosts: BlogPost[] = allPosts.sort(
     <ul>
       {sortedPosts.map((post) => (
         <li>
-          <a href={`/blog/${post.slug}/`}>
+          <a href={`/blog/${post.id}/`}>
             <h2>{post.data.title}</h2>
             <p>{post.data.date.toLocaleDateString()}</p>
           </a>
