@@ -11,3 +11,11 @@ const blogCollection = defineCollection({
 export const collections = {
   blog: blogCollection,
 };
+
+
+import { defineConfig } from 'astro/config';
+import astroIcon from 'astro-icon';
+
+export default defineConfig({
+  integrations: [astroIcon()],
+});
