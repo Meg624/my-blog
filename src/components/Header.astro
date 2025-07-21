@@ -4,13 +4,13 @@
 
 <div class="header">
     <div class="logo">
-        <a href="/">My Blog</a>
+        <a href={`${import.meta.env.BASE_URL}`}>My Blog</a>
     </div>
     <nav>
         <ul>
-            <li><a href="/">ホーム</a></li>
-            <li><a href="/blog">ブログ</a></li>
-            <li><a href="/about">プロフィール</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}`}>ホーム</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}blog`}>ブログ</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}about`}>プロフィール</a></li>
         </ul>
     </nav>
 </div>
