@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -24,8 +24,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Clean previous git data
+        run: rm -rf ./dist/.git
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          user_name: Meg624
+          user_email: mecockney624@gmail.com
