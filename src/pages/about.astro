@@ -3,6 +3,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+// virtual import
+// import icons from 'virtual:astro-icon';
+// import { Icon } from 'virtual:astro-icon';
+
 ---
 
 <BaseLayout title="プロフィール">
@@ -11,15 +16,15 @@ import Footer from '../components/Footer.astro';
   <section class="about">
     <div class="profile-container">
       <div class="profile-image">
-        <img src="/images/profile.jpg" alt="プロフィール画像" />
+        <img src="meg_logo.png" alt="プロフィール画像" />
       </div>
       <div class="profile-content">
         <h1>About Me</h1>
-        <p>はじめまして、[あなたの名前]です。</p>
+        <p>はじめまして、[Megumi Izu]です。</p>
         <p>このブログでは、Web開発やプログラミング、趣味の旅行や読書について発信しています。</p>
 
         <h2>経歴</h2>
-        <p>ここに簡単な経歴や自己紹介を記入してください。</p>
+        <p>東京都生まれ山梨県育ち<br>結婚してから拠点は北海道<br />夫・娘・老猫と慎ましく暮らす<br>エンジニアとして武者修行中</p>
 
         <h2>スキル</h2>
         <ul>
@@ -30,8 +35,7 @@ import Footer from '../components/Footer.astro';
         </ul>
 
         <h2>連絡先</h2>
-        <p>TwitterやGitHubなどのSNSリンクを設置してください。</p>
-      </div>
+          <p><a href="https://github.com/Meg624" target="_blank" rel="noopener noreferrer">Github</a></p>
     </div>
   </section>
 
