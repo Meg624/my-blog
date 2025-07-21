@@ -30,7 +30,7 @@ const recentPosts = allPosts
           <h3>{post.data.title}</h3>
           <p class="date">{new Date(post.data.date).toLocaleDateString('ja-JP')}</p>
           <p>{post.data.description}</p>
-          <a href={`/blog/${post.slug}`} class="read-more">続きを読む</a>
+          <a href={`/blog/${post.id}`} class="read-more">続きを読む</a>
         </div>
       ))}
     </div>
