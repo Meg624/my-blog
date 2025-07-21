@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
 import icons from 'astro-icon';
 
-// https://astro.build/config
 export default defineConfig({
+  base: '/my-blog/', // ← GitHub Pages 用のベースパスを追加
   integrations: [
-    icons(),    // ←astro-icon用
+    icons(),
   ],
 });
