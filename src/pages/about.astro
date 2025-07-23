@@ -10,28 +10,28 @@ import Footer from '../components/Footer.astro';
 
 ---
 
-<BaseLayout title="プロフィール">
+<BaseLayout title="About Me">
   <Header slot="header" />
 
   <section class="about">
     <div class="profile-container">
       <div class="profile-image">
-        <img src="meg_logo.png" alt="プロフィール画像" />
+        <img src={`${import.meta.env.BASE_URL}meg_logo.png`}  alt="プロフィール画像" />
       </div>
       <div class="profile-content">
         <h1>About Me</h1>
-        <p>はじめまして、[Megumi Izu]です。</p>
+        <p>はじめまして、Megumi Izです。</p>
         <p>このブログでは、Web開発やプログラミング、趣味の旅行や読書について発信しています。</p>
 
         <h2>経歴</h2>
-        <p>東京都生まれ山梨県育ち<br>結婚してから拠点は北海道<br />夫・娘・老猫と慎ましく暮らす<br>エンジニアとして武者修行中</p>
+        <p>東京都生まれ山梨県育ち<br>結婚してから北海道<br />夫・娘・老猫と慎ましく暮らす<br>エンジニアとして武者修行中</p>
 
         <h2>スキル</h2>
         <ul>
           <li>HTML/CSS</li>
           <li>JavaScript</li>
-          <li>Astro</li>
-          <li>React</li>
+          <li>Astro!</li>
+          <li>React?</li>
         </ul>
 
         <h2>連絡先</h2>
