@@ -10,8 +10,10 @@ type BlogEntry = Awaited<ReturnType<typeof getCollection>>[number];
 
 const allPosts: BlogEntry[] = await getCollection('blog');
 const recentPosts = allPosts
+  .filter(post => post.data.date instanceof Date)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
+
 ---
 
 <BaseLayout title="ホーム">

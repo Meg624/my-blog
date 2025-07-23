@@ -1,6 +1,6 @@
 ---
 title: 'Astroでブログサイトを作る方法'
-date: 2023-01-15
+pubDate: 2023-01-15
 tags: ['Astro', 'Web開発', 'チュートリアル']
 description: 'Astroフレームワークを使ってブログサイトを構築する手順を解説します。'
 ---
