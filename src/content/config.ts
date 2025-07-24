@@ -1,3 +1,5 @@
+
+//@ts-ignore
 import { z, defineCollection } from "astro:content";
 
 const blogCollection = defineCollection({
