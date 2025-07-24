@@ -1,30 +1,30 @@
 ---
-// src/layouts/BlogPostLayout.astro
 import BaseLayout from './BaseLayout.astro';
 
 const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-    <slot name="header" slot="header" />
+    <slot name="header" />
 
     <article>
         <h1>{frontmatter.title}</h1>
-        <p class="date">投稿日: {new Date(frontmatter.date).toLocaleDateString('ja-JP')}</p>
+        <p class="date">投稿日: {new Date(frontmatter.pubDate).toLocaleDateString('ja-JP')}</p>
 
         <div class="tags">
-            {frontmatter.tags.map((tag: string) => (
+            {Array.isArray(frontmatter.tags) && frontmatter.tags.map((tag: string) => (
                 <span class="tag">{tag}</span>
             ))}
-        </div> 
+        </div>
 
         <div class="content">
             <slot /> <!-- マークダウンコンテンツがここに入る -->
         </div>
     </article>
 
-    <slot name="footer" slot="footer" />
+    <slot name="footer" />
 </BaseLayout>
+
 
 <style>
     article {
